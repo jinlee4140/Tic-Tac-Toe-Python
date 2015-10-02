@@ -1,5 +1,5 @@
 #Python Tic-Tac-Toe
-
+import random
 #The game board
 board = [0, 1, 2,
 		 		 3, 4, 5,
@@ -12,16 +12,31 @@ def show():
 	print '-----------'
 	print board[6], '|',board[7], '|',board[8]
 
-while True:
+	while True:
 
-	input = raw_input("Select a spot.")
-	input = int(input)
+		print "Select a spot."
+		input = raw_input("> ")
+		input = int(input)
 
-	if board[input] != 'x' and board[input] != 'o':
-		board[input] = 'x'
+		if board[input] != 'x' and board[input] != 'o':
+			board[input] = 'x'
 
-	else:
-		print "The spot is taken! choose a different spot."
+			finding = True
+
+			while finding:
+				random.seed() #gives a random generator
+				opponent = random.rantint(0,8)
+
+				if board[opponent] != 'o' and board[opponent]	!= 'x':
+					board[opponent] = 'o'
+					finding = False	
 
 
-show()
+
+		else:
+			print "The spot is taken! choose a different spot."
+
+
+# show()
+
+print random.seed()
