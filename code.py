@@ -12,4 +12,16 @@ def show():
 	print '-----------'
 	print board[6], '|',board[7], '|',board[8]
 
+while True:
+
+	input = raw_input("Select a spot.")
+	input = int(input)
+
+	if board[input] != 'x' and board[input] != 'o':
+		board[input] = 'x'
+
+	else:
+		print "The spot is taken! choose a different spot."
+
+
 show()
